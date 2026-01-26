@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Diary from "./pages/Diary";
 import New from "./pages/New";
 import Notfound from "./pages/Notfound";
+import { getEmotionImage } from "./util/get-emotion-image";
+
 //1."/" 모든 일기를 조회하는 HOME페이지
 //2. "/new" 새로운 일기를 작성하는 NEW페이지
 //3. "diary" 일기를 상세히 조회하는 Diary 페이지
@@ -16,6 +18,13 @@ function App() {
   return (
     <>
       <div>
+        <img src={getEmotionImage(1)} />
+        <img src={getEmotionImage(2)} />
+        <img src={getEmotionImage(3)} />
+        <img src={getEmotionImage(4)} />
+        <img src={getEmotionImage(5)} />
+      </div>
+      <div>
         <Link to={"/"}>Home</Link>
         <Link to={"/new"}>New</Link>
         <Link to={"/diary"}>Diary</Link>
@@ -24,7 +33,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<New />} />
-        <Route path="/diary" element={<Diary />} />
+        <Route path="/diary/:id" element={<Diary />} />
         <Route path="*" element={<Notfound />} />
         {/* *은 와일드카드다. 라우트스 태그 안에는 라우트만 들어갈 수 있다. 디브같은거 불가함*/}
       </Routes>
